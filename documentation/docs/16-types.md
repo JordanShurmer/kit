@@ -9,7 +9,7 @@ title: Types
 The `RequestHandler` and `Load` types both accept a `Params` argument allowing you to type the `params` object. For example this endpoint expects `foo`, `bar` and `baz` params:
 
 ```js
-/// file: src/routes/[foo]/[bar]/[baz]/+page.server.js
+/// file: src/routes/[foo]/[bar]/[baz]/+server.js
 // @errors: 2355
 /** @type {import('@sveltejs/kit').RequestHandler<{
  *   foo: string;
@@ -59,7 +59,7 @@ export type PageServerLoad = Kit.ServerLoad<RouteParams>;
 // @errors: 2355
 // ---cut---
 /** @type {import('./$types').PageServerLoad} */
-export async function GET({ params }) {
+export async function load({ params }) {
 	// ...
 }
 ```
